@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/sheet"
 
 import { Button, buttonVariants } from "@/components/ui/button";
-import { Equal, Menu, Minus, Plus, Settings } from "lucide-react";
+import { Equal, Facebook, Github, Menu, Minus, Plus, Settings } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { formatTime } from "@/helper/time-formater";
@@ -71,7 +71,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <div className="w-[23rem] p-4"
+    <div className="w-[23rem] p-4 flex flex-col justify-between"
       ref={sidebarRef}
       style={{
         transition: "margin-left 0.3s ease-in-out",
@@ -79,74 +79,88 @@ const Navigation = () => {
         backgroundColor: state.breakTime ? "#4ade80" : "#fed7aa",
       }}
     >
-      <h1 className="text-1xl mb-10">Settings</h1>
-      <div className="flex flex-row justify-between items-center">
-        <span>Lapse</span>
-        <div className="flex flex-row justify-between items-center gap-4">
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
-            if (lapse > 0) {
-              setLapse(lapse - 1);
-            }
-          }}>
-            <Minus />
-          </Button>
-          {lapse} 
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
-            setLapse(lapse + 1);
-          }}>
-            <Plus />
-          </Button>
+      <div>
+        <h1 className="text-1xl mb-10">Settings</h1>
+        <div className="flex flex-row justify-between items-center">
+          <span>Lapse</span>
+          <div className="flex flex-row justify-between items-center gap-4">
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
+              if (lapse > 0) {
+                setLapse(lapse - 1);
+              }
+            }}>
+              <Minus />
+            </Button>
+            {lapse}
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
+              setLapse(lapse + 1);
+            }}>
+              <Plus />
+            </Button>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center">
+          <span>Work Time</span>
+          <div className="flex flex-row justify-between items-center gap-4">
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(workTime, setWorkTime)}>
+              <Minus />
+            </Button>
+            {formatTime(workTime)} min
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(workTime, setWorkTime)}>
+              <Plus />
+            </Button>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center">
+          <span>Short Break</span>
+          <div className="flex flex-row justify-between items-center gap-4">
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(shortBreak, setShortBreak)}>
+              <Minus />
+            </Button>
+            {formatTime(shortBreak)} min
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(shortBreak, setShortBreak)}>
+              <Plus />
+            </Button>
+          </div>
+        </div>
+        <div className="flex flex-row justify-between items-center">
+          <span>Long Break</span>
+          <div className="flex flex-row justify-between items-center gap-4">
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(longBreak, setLongBreak)}>
+              <Minus />
+            </Button>
+            {formatTime(longBreak)} min
+            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(longBreak, setLongBreak)}>
+              <Plus />
+            </Button>
+          </div>
+        </div>
+        <Button
+          className="w-full mt-4"
+          onClick={() => {
+            handleDispatch();
+            dispatch({
+              type: "CHANGE_SIDEBAR_OPEN",
+              payload: false,
+            });
+          }}
+        >
+          Save Changes
+        </Button>
+      </div>
+      <div className="mt-auto flex flex-col">
+        <span className="text-sm mb-3">
+          Created by: Rabaya, DG
+        </span>
+        <div className="flex flex-row gap-3 justify-start items-center">
+          <Link href="https://github.com/thisismedg" target="_blank">
+            <Github className="w-6 h-6" />
+          </Link>
+          <Link href="https://facebook.com/thisismedg" target="_blank">
+            <Facebook className="w-6 h-6" />
+          </Link>
         </div>
       </div>
-      <div className="flex flex-row justify-between items-center">
-        <span>Work Time</span>
-        <div className="flex flex-row justify-between items-center gap-4">
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(workTime, setWorkTime)}>
-            <Minus />
-          </Button>
-          {formatTime(workTime)} min
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(workTime, setWorkTime)}>
-            <Plus />
-          </Button>
-        </div>
-      </div>
-      <div className="flex flex-row justify-between items-center">
-        <span>Short Break</span>
-        <div className="flex flex-row justify-between items-center gap-4">
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(shortBreak, setShortBreak)}>
-            <Minus />
-          </Button>
-          {formatTime(shortBreak)} min
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(shortBreak, setShortBreak)}>
-            <Plus />
-          </Button>
-        </div>
-      </div>
-      <div className="flex flex-row justify-between items-center">
-        <span>Long Break</span>
-        <div className="flex flex-row justify-between items-center gap-4">
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(longBreak, setLongBreak)}>
-            <Minus />
-          </Button>
-          {formatTime(longBreak)} min
-          <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(longBreak, setLongBreak)}>
-            <Plus />
-          </Button>
-        </div>
-      </div>
-
-      <Button
-        className="w-full mt-4"
-        onClick={() => {
-          handleDispatch();
-          dispatch({
-            type: "CHANGE_SIDEBAR_OPEN",
-            payload: false,
-          });
-        }}
-      >
-        Save Changes
-      </Button>
     </div>
   );
 };
