@@ -23,3 +23,7 @@ Clone this repository and open `index.html` in your browser:
 git clone https://github.com/thisismedg/pomodoro-app.git
 cd pomodoro-app
 open index.html
+```
+### Live Demo
+
+https://pomodoro-timerapp.vercel.app/
