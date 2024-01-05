@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: "Pomodoro Timer, Pomodoro, pomodoro",
   manifest: "/manifest.json",
 };
-
+  
 export const viewport: Viewport = {
   themeColor: "#fed7aa",
   viewportFit: "cover",

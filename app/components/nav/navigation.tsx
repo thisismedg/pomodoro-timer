@@ -84,7 +84,7 @@ const Navigation = () => {
         <div className="flex flex-row justify-between items-center">
           <span>Lapse</span>
           <div className="flex flex-row justify-between items-center gap-4">
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
               if (lapse > 0) {
                 setLapse(lapse - 1);
               }
@@ -92,7 +92,7 @@ const Navigation = () => {
               <Minus />
             </Button>
             {lapse}
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => {
               setLapse(lapse + 1);
             }}>
               <Plus />
@@ -102,11 +102,11 @@ const Navigation = () => {
         <div className="flex flex-row justify-between items-center">
           <span>Work Time</span>
           <div className="flex flex-row justify-between items-center gap-4">
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(workTime, setWorkTime)}>
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(workTime, setWorkTime)}>
               <Minus />
             </Button>
             {formatTime(workTime)} min
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(workTime, setWorkTime)}>
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(workTime, setWorkTime)}>
               <Plus />
             </Button>
           </div>
@@ -114,11 +114,11 @@ const Navigation = () => {
         <div className="flex flex-row justify-between items-center">
           <span>Short Break</span>
           <div className="flex flex-row justify-between items-center gap-4">
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(shortBreak, setShortBreak)}>
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(shortBreak, setShortBreak)}>
               <Minus />
             </Button>
             {formatTime(shortBreak)} min
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(shortBreak, setShortBreak)}>
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(shortBreak, setShortBreak)}>
               <Plus />
             </Button>
           </div>
@@ -126,11 +126,11 @@ const Navigation = () => {
         <div className="flex flex-row justify-between items-center">
           <span>Long Break</span>
           <div className="flex flex-row justify-between items-center gap-4">
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(longBreak, setLongBreak)}>
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleDecrement(longBreak, setLongBreak)}>
               <Minus />
             </Button>
             {formatTime(longBreak)} min
-            <Button variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(longBreak, setLongBreak)}>
+            <Button aria-label="button" variant={'ghost'} className="w-[2.5rem] h-[2.5rem] rounded-full" onClick={() => handleIncrement(longBreak, setLongBreak)}>
               <Plus />
             </Button>
           </div>
@@ -144,6 +144,7 @@ const Navigation = () => {
               payload: false,
             });
           }}
+          aria-label="button"
         >
           Save Changes
         </Button>
@@ -153,10 +154,10 @@ const Navigation = () => {
           Created by: Rabaya, DG
         </span>
         <div className="flex flex-row gap-3 justify-start items-center">
-          <Link href="https://github.com/thisismedg" target="_blank">
+          <Link href="https://github.com/thisismedg" target="_blank" aria-label="Github Link">
             <Github className="w-6 h-6" />
           </Link>
-          <Link href="https://facebook.com/thisismedg" target="_blank">
+          <Link href="https://facebook.com/thisismedg" target="_blank" aria-label="Facebook Link">
             <Facebook className="w-6 h-6" />
           </Link>
         </div>

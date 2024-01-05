@@ -106,7 +106,7 @@ const PomodoroTimer = () => {
         backgroundColor: isBreakTime ? "#4ade80" : "#fed7aa",
       }}
     >
-      <Button variant={"ghost"} className="absolute h-[3rem] w-[3rem] p-0 rounded-full top-5 left-5" onClick={() => dispatch({ type: "CHANGE_SIDEBAR_OPEN", payload: !state.sidebarOpen })}>
+      <Button aria-label="button" variant={"ghost"} className="absolute h-[3rem] w-[3rem] p-0 rounded-full top-5 left-5" onClick={() => dispatch({ type: "CHANGE_SIDEBAR_OPEN", payload: !state.sidebarOpen })}>
         <Settings className="h-[1.5rem] w-[1.5rem]" />
       </Button>
       <div className="grid place-content-center place-items-center">
@@ -129,6 +129,7 @@ const PomodoroTimer = () => {
         {/* Buttons */}
         <div className="grid gap-5 grid-cols-2">
           <Button
+            aria-label="button"
             variant={"ghost"}
             className="h-[5rem] w-[5rem] rounded-full"
             onClick={handleStartPause}
@@ -140,6 +141,7 @@ const PomodoroTimer = () => {
             )}
           </Button>
           <Button
+            aria-label="button"
             variant={"ghost"}
             className="h-[5rem] w-[5rem] rounded-full"
             onClick={handleReset}
