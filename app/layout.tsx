@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.scss";
 import "@/public/sw";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import {
   GlobalContextProvider,
 } from "./components/reducer/context";
@@ -29,6 +30,7 @@ export default function RootLayout({
       <html lang="en">
         <body className="relative h-[100vh] w-[100vw] overflow-hidden">
           {children}
+          <SpeedInsights />
         </body>
       </html>
     </GlobalContextProvider>
