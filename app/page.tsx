@@ -1,13 +1,14 @@
 import React from "react";
-import Pomodoro from "./components/pomodoro/page";
+import PomodoroTimer from "./components/pomodoro/pomodoro-timer";
+import Navigation from "./components/nav/navigation";
 
-const PomodoroApp = () => {
-
+const PomodoroAppRoot = () => {
   return (
-    <div className="grid place-content-center place-items-center w-[100vw] h-[100vh]">
-      <Pomodoro />
+    <div className="grid grid-cols-[auto_1fr] h-[100vh] w-full relative overflow-hidden">
+      <Navigation />
+      <PomodoroTimer />
     </div>
   );
 };
 
-export default PomodoroApp;
+export default PomodoroAppRoot;

@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "@/styles/globals.scss";
 import "@/public/sw";
+import {
+  GlobalContextProvider,
+} from "./components/reducer/context";
 
 export const metadata: Metadata = {
   title: "Pomodoro Timer",
@@ -13,6 +16,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -21,8 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="overflow-hidden">{children}</body>
-    </html>
+    <GlobalContextProvider>
+      <html lang="en">
+        <body className="relative h-[100vh] w-[100vw] overflow-hidden">
+          {children}
+        </body>
+      </html>
+    </GlobalContextProvider>
   );
 }
